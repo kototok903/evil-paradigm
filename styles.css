@@ -59,6 +59,9 @@ body {
   --pd-surface-opacity-hover: rgba(255, 255, 255, 0.06);
   --pd-surface-opacity-hover-subtle: rgba(255, 255, 255, 0.03);
   --pd-surface-opacity-active: rgba(255, 255, 255, 0.1);
+  --pd-button-tertiary-base: rgba(255, 92, 87, 0.12);
+  --pd-button-tertiary-hover: rgba(255, 92, 87, 0.18);
+  --pd-button-tertiary-active: rgba(255, 92, 87, 0.26);
 
   --pd-border-subtle: rgba(255, 255, 255, 0.12);
   --pd-border-light: rgba(255, 255, 255, 0.18);
@@ -112,6 +115,9 @@ body {
   --background-color-info: var(--pd-surface-info);
   --background-color-active: var(--pd-surface-active);
   --background-color-active-icon: var(--pd-surface-active-icon);
+  --color-button-tertiary-base: var(--pd-button-tertiary-base);
+  --color-button-tertiary-hover: var(--pd-button-tertiary-hover);
+  --color-button-tertiary-active: var(--pd-button-tertiary-active);
   --icon-color-success: var(--pd-icon-success);
   --icon-color-warning: var(--pd-icon-warning);
   --icon-color-alert: var(--pd-icon-alert);
@@ -164,6 +170,14 @@ body {
 
 .ag-checkbox-input-wrapper.ag-checked {
   background: var(--pd-color-accent) !important;
+  border-color: var(--pd-color-accent) !important;
+}
+
+[class*="data-[state=checked]:bg-[var(--pd-color-blue-500)]"][data-state="checked"] {
+  background-color: var(--pd-color-accent) !important;
+}
+
+[class*="data-[state=checked]:border-[var(--pd-border-dark)]"][data-state="checked"] {
   border-color: var(--pd-color-accent) !important;
 }
 
@@ -269,8 +283,16 @@ body {
   background-color: var(--background-color-accent-alpha-5) !important;
 }
 
+[class*="bg-button-tertiary-base"] {
+  background-color: var(--color-button-tertiary-base) !important;
+}
+
 .bg-muted {
   background-color: var(--pd-surface-muted) !important;
+}
+
+.bg-neutral-100 {
+  background-color: var(--pd-surface-secondary) !important;
 }
 
 .border-opacity-subtle {
@@ -298,8 +320,19 @@ body {
   background-color: var(--pd-surface-muted-hover) !important;
 }
 
+[class*="hover:bg-button-tertiary-hover"]:hover {
+  background-color: var(--color-button-tertiary-hover) !important;
+}
+
 .active\:bg-neutral-300:active {
   background-color: #404955 !important;
+}
+
+[class*="active:bg-button-tertiary-active"]:active,
+[class*="focus-visible:bg-button-tertiary-active"]:focus-visible,
+[class*="data-[status='active']:bg-button-tertiary-active"][data-status="active"],
+[class*="aria-[expanded=true]:bg-button-tertiary-active"][aria-expanded="true"] {
+  background-color: var(--color-button-tertiary-active) !important;
 }
 
 .text-secondary {
