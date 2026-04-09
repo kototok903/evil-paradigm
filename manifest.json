@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Evil Paradigm",
+  "version": "0.1.0",
+  "description": "A Chrome extension that turns Paradigm Evil~",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "https://app.paradigmai.com/*",
+        "https://*.paradigm-7j4.pages.dev/*",
+        "https://staging.paradigmai.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://*.onrender.com/*"],
+      "include_globs": ["https://frontend-zwv1-*.onrender.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["styles.css"],
+      "matches": [
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "https://app.paradigmai.com/*",
+        "https://*.paradigm-7j4.pages.dev/*",
+        "https://staging.paradigmai.com/*",
+        "https://*.onrender.com/*"
+      ]
+    }
+  ]
+}
