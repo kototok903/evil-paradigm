@@ -7,12 +7,28 @@ body {
   --pd-color-accent-strong: #d92f2f;
   --pd-color-accent-subtle: rgba(255, 92, 87, 0.22);
   --pd-color-accent-contrast: #ffe0dd;
+  --pd-color-success-base: #3bcf84;
+  --pd-color-success-dark: #b6f4cf;
+  --pd-color-success-subtle: rgba(59, 207, 132, 0.22);
+  --pd-color-warning-base: #f5b94a;
+  --pd-color-warning-dark: #ffe1a6;
+  --pd-color-warning-subtle: rgba(245, 185, 74, 0.22);
+  --pd-color-alert-base: #ff7d74;
+  --pd-color-alert-dark: #ffd2cd;
+  --pd-color-alert-subtle: rgba(255, 125, 116, 0.22);
+  --pd-color-info-base: #7ba8ff;
+  --pd-color-info-dark: #d7e3ff;
+  --pd-color-info-subtle: rgba(123, 168, 255, 0.22);
 
   --pd-text-headline: #f5f7fb;
   --pd-text-primary: #e8ebf3;
   --pd-text-secondary: #d0d7e5;
   --pd-text-muted: #b4bdcf;
   --pd-text-subtle: #919cb1;
+  --pd-text-success: var(--pd-color-success-dark);
+  --pd-text-warning: var(--pd-color-warning-dark);
+  --pd-text-alert: var(--pd-color-alert-dark);
+  --pd-text-info: var(--pd-color-info-dark);
 
   --pd-icon-primary: var(--pd-text-primary);
   --pd-icon-secondary: #d7deee;
@@ -20,16 +36,21 @@ body {
   --pd-icon-accent: var(--pd-color-accent);
   --pd-icon-active: var(--pd-color-accent);
   --pd-icon-inactive: #98a3b8;
-  --pd-icon-info: var(--pd-color-accent-strong);
+  --pd-icon-success: var(--pd-color-success-base);
+  --pd-icon-warning: var(--pd-color-warning-base);
+  --pd-icon-alert: var(--pd-color-alert-base);
+  --pd-icon-info: var(--pd-color-info-base);
 
   --pd-surface-primary: #11141b;
   --pd-surface-secondary: #171b23;
   --pd-surface-tertiary: #20252f;
+  --pd-surface-success: #15241c;
+  --pd-surface-warning: #2a2114;
   --pd-surface-active: #2a1618;
   --pd-surface-active-icon: rgba(255, 92, 87, 0.28);
   --pd-surface-inactive-icon: rgba(255, 255, 255, 0.08);
   --pd-surface-alert: #301719;
-  --pd-surface-info: #261618;
+  --pd-surface-info: #162130;
   --pd-surface-muted: #2a303b;
   --pd-surface-muted-hover: #343c49;
   --pd-surface-accent: var(--pd-color-accent);
@@ -75,14 +96,30 @@ body {
   --text-color-primary: var(--pd-text-primary);
   --text-color-secondary: var(--pd-text-secondary);
   --text-color-muted: var(--pd-text-muted);
+  --text-color-success: var(--pd-text-success);
+  --text-color-warning: var(--pd-text-warning);
+  --text-color-alert: var(--pd-text-alert);
+  --text-color-info: var(--pd-text-info);
   --background-color-primary: var(--pd-surface-primary);
   --background-color-primary-hover: var(--pd-surface-opacity-hover-subtle);
   --background-color-primary-focus: var(--pd-surface-opacity-hover);
   --background-color-primary-active: var(--pd-surface-opacity-active);
   --background-color-secondary: var(--pd-surface-secondary);
   --background-color-tertiary: var(--pd-surface-tertiary);
+  --background-color-success: var(--pd-surface-success);
+  --background-color-warning: var(--pd-surface-warning);
+  --background-color-alert: var(--pd-surface-alert);
+  --background-color-info: var(--pd-surface-info);
   --background-color-active: var(--pd-surface-active);
   --background-color-active-icon: var(--pd-surface-active-icon);
+  --icon-color-success: var(--pd-icon-success);
+  --icon-color-warning: var(--pd-icon-warning);
+  --icon-color-alert: var(--pd-icon-alert);
+  --icon-color-info: var(--pd-icon-info);
+  --color-success-dark: var(--pd-color-success-dark);
+  --color-warning-dark: var(--pd-color-warning-dark);
+  --color-alert-dark: var(--pd-color-alert-dark);
+  --color-info-dark: var(--pd-color-info-dark);
 
   --ag-background-color: #10141b;
   --ag-foreground-color: var(--pd-text-primary);
@@ -273,9 +310,45 @@ body {
   color: var(--pd-text-muted) !important;
 }
 
+.text-success,
+.text-success-dark {
+  color: var(--text-color-success) !important;
+}
+
+.text-warning,
+.text-warning-dark {
+  color: var(--text-color-warning) !important;
+}
+
+.text-alert,
+.text-alert-dark {
+  color: var(--text-color-alert) !important;
+}
+
+.text-info,
+.text-info-dark {
+  color: var(--text-color-info) !important;
+}
+
 .text-blue-600,
 .hover\:text-blue-700:hover {
   color: var(--pd-color-accent) !important;
+}
+
+.text-blue-900 {
+  color: var(--text-color-info) !important;
+}
+
+.text-green-900 {
+  color: var(--text-color-success) !important;
+}
+
+.text-yellow-900 {
+  color: var(--text-color-warning) !important;
+}
+
+.text-red-900 {
+  color: var(--text-color-alert) !important;
 }
 
 .text-black {
@@ -294,6 +367,23 @@ body {
   color: var(--icon-color-muted) !important;
 }
 
+.icon-success {
+  color: var(--icon-color-success) !important;
+}
+
+.icon-warning {
+  color: var(--icon-color-warning) !important;
+}
+
+.icon-alert {
+  color: var(--icon-color-alert) !important;
+}
+
+.icon-info,
+.icon-info-dark {
+  color: var(--icon-color-info) !important;
+}
+
 .icon-white {
   color: var(--icon-color-white) !important;
 }
@@ -307,6 +397,11 @@ a svg:not([class*="icon-"]):not([class*="fill-icon-"]),
 .icon-primary [fill="black"],
 .icon-secondary [fill="black"],
 .icon-muted [fill="black"],
+.icon-success [fill="black"],
+.icon-warning [fill="black"],
+.icon-alert [fill="black"],
+.icon-info [fill="black"],
+.icon-info-dark [fill="black"],
 .icon-white [fill="black"],
 button svg [fill="black"],
 a svg [fill="black"],
@@ -317,6 +412,11 @@ a svg [fill="black"],
 .icon-primary [stroke="black"],
 .icon-secondary [stroke="black"],
 .icon-muted [stroke="black"],
+.icon-success [stroke="black"],
+.icon-warning [stroke="black"],
+.icon-alert [stroke="black"],
+.icon-info [stroke="black"],
+.icon-info-dark [stroke="black"],
 .icon-white [stroke="black"],
 button svg [stroke="black"],
 a svg [stroke="black"],
@@ -334,6 +434,22 @@ a svg [stroke="black"],
 
 .fill-icon-muted {
   fill: var(--pd-icon-muted) !important;
+}
+
+.fill-icon-success {
+  fill: var(--pd-icon-success) !important;
+}
+
+.fill-icon-warning {
+  fill: var(--pd-icon-warning) !important;
+}
+
+.fill-icon-alert {
+  fill: var(--pd-icon-alert) !important;
+}
+
+.fill-icon-info {
+  fill: var(--pd-icon-info) !important;
 }
 
 .shadow-tl-2xl {
@@ -355,4 +471,26 @@ a svg [stroke="black"],
 .bg-blue-50,
 .hover\:bg-blue-50:hover {
   background-color: rgba(255, 92, 87, 0.12) !important;
+}
+
+.bg-success,
+.bg-green-100 {
+  background-color: var(--background-color-success) !important;
+}
+
+.bg-warning,
+.bg-yellow-100,
+.bg-orange-50,
+.bg-orange-100 {
+  background-color: var(--background-color-warning) !important;
+}
+
+.bg-alert,
+.bg-red-100 {
+  background-color: var(--background-color-alert) !important;
+}
+
+.bg-info,
+.bg-blue-100 {
+  background-color: var(--background-color-info) !important;
 }
