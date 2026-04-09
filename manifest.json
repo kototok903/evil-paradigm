@@ -3,6 +3,10 @@
   "name": "Evil Paradigm",
   "version": "0.1.0",
   "description": "A Chrome extension that turns Paradigm Evil~",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
   "content_scripts": [
     {
       "matches": [

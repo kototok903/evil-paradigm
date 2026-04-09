@@ -1,8 +1,9 @@
 const STYLE_LINK_ID = "evil-paradigm-theme"
 
-const existing = document.getElementById(STYLE_LINK_ID)
+function injectTheme() {
+  const existing = document.getElementById(STYLE_LINK_ID)
+  if (existing) return
 
-if (!existing) {
   const link = document.createElement("link")
   link.id = STYLE_LINK_ID
   link.rel = "stylesheet"
@@ -10,4 +11,23 @@ if (!existing) {
 
   const parent = document.head ?? document.documentElement
   parent.appendChild(link)
+}
+
+function shouldEnable(result) {
+  return result?.enabled !== false
+}
+
+try {
+  chrome.storage.local.get(["enabled"], (result) => {
+    if (chrome.runtime.lastError) {
+      injectTheme()
+      return
+    }
+
+    if (shouldEnable(result)) {
+      injectTheme()
+    }
+  })
+} catch {
+  injectTheme()
 }
